@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link rel="stylesheet" href="slick-1.8.0/slick/slick.css">
+  <link rel="stylesheet" href="slick-1.8.0/slick/slick-theme.css">
+</head>
+<body>
+ <button type="button" id="open-modal">Open Registration Window</button>
+ <div id="modal-font-id" class="modal-font">
+   <div class="modal">
+    <form action="">
+     <button type="button" id="close-modal">X</button>
+     <div class="autherization">
+       <label id="email-label" for="email">
+         Email
+         <input type="email" id="email-input">
+       </label>
+       <label id="password-label" for="password">
+         Password
+         <input type="password" id="password-input">
+       </label>
+       <div id="error-text">Invalid characters in password !</div>
+       <button type="submit"  id="login-button">Login</button>
+     </div>
+     </form>
+   </div>
+ </div>
+  <div class="slider single-item">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div>
+ <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="slick-1.8.0/slick/slick.min.js"></script>
+ <script src="index.js"></script>
+</body>
+</html>

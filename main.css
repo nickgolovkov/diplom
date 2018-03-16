@@ -1,41 +1,81 @@
-*{
+* {
   font-family: 'Indie Flower', cursive;
 }
-body{
+
+body {
   margin: 0;
   padding: 0;
   font-weight: 900;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #656564;
+  flex-direction: column;
 }
-.body-class{
+
+header {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1.5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  height: 100%;
+  width: 25%;
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-text {
+  font-size: 34px;
+  height: 100%;
+  width: 75%;
+  text-align: center;
+}
+
+.back-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-class {
   overflow: hidden;
+  opacity: 0;
 }
-#open-modal{
+
+#open-modal {
   font-size: 18px;
   border-radius: 20%;
+
 }
-.modal-font{
+
+.modal-font {
   width: 100%;
   height: 100%;
   background-color: #312f2f;
-  opacity: 0.7;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 0;
   left: 0;
+  font-size: 21px;
 }
-.modal{
+
+.modal {
   width: 500px;
   height: 500px;
   background-color: aliceblue;
   border-radius: 10%;
 }
-#close-modal{
+
+#close-modal {
   width: 30px;
   height: 30px;
   font-size: 20px;
@@ -43,7 +83,8 @@ body{
   margin-left: 450px;
   margin-top: 20px;
 }
-.autherization{
+
+.autherization {
   margin-top: 120px;
   margin-left: 100px;
   display: flex;
@@ -51,46 +92,48 @@ body{
   justify-content: center;
   align-items: flex-start;
 }
-#email-input{
-  margin-left: 70px;
+
+#email-input {
+  margin-left: 83px;
 }
-#password-input{
+
+#password-input {
   margin-left: 37px;
 }
-#email-label{
+
+#email-label {
+  margin-bottom: 20px;
+
+}
+
+#password-label {
   margin-bottom: 20px;
 }
-#password-label{
-  margin-bottom: 20px;
-}
-#error-text{
+
+#error-text {
   margin-bottom: 20px;
   color: red;
   display: none;
+  margin-top: 20px;
 }
-.error-text-visible{
+
+.error-text-visible {
   display: block;
+
 }
-#login-button{
+
+#login-button {
   border-radius: 20%;
+  margin-top: 15px;
 }
-.single-item{
+
+.single-item {
   width: 300px;
-  height:50px;
+  height: 50px;
   border: 2px solid black;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#user-greetings {
+  margin-left: 90px;
+  margin-top: 20px;
+}

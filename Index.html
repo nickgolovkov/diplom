@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
@@ -8,37 +9,53 @@
   <link rel="stylesheet" href="slick-1.8.0/slick/slick.css">
   <link rel="stylesheet" href="slick-1.8.0/slick/slick-theme.css">
 </head>
+
 <body>
- <button type="button" id="open-modal">Open Registration Window</button>
- <div id="modal-font-id" class="modal-font">
-   <div class="modal">
-    <form action="">
-     <button type="button" id="close-modal">X</button>
-     <div class="autherization">
-       <label id="email-label" for="email">
+  <div id="modal-font-id" class="modal-font">
+    <div class="modal">
+      <form action="">
+        <button type="button" id="close-modal">X</button>
+        <div class="autherization">
+          <label id="email-label" for="email">
          Email
-         <input type="email" id="email-input">
+         <input type="email" id="email-input" placeholder="Start typing yor Email">
        </label>
-       <label id="password-label" for="password">
+
+          <div id="pass-label">
+            <label id="password-label" for="password">
          Password
-         <input type="password" id="password-input">
+         <input type="password" id="password-input" placeholder="Start typing yor password">
        </label>
-       <div id="error-text">Invalid characters in password !</div>
-       <button type="submit"  id="login-button">Login</button>
-     </div>
-     </form>
-   </div>
- </div>
-  <div class="slider single-item">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-</div>
- <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="slick-1.8.0/slick/slick.min.js"></script>
- <script src="index.js"></script>
+          </div>
+          <div id="error-text">Invalid characters in password or Email!</div>
+          <button type="button" id="login-button">Submit</button>
+        </div>
+        <div id="user-greetings"></div>
+      </form>
+    </div>
+  </div>
+  <header>
+    <div class="header-text">
+      Online News Headlines
+    </div>
+    <div class="button-container">
+      <button type="button" id="open-modal">Open Registration   Window</button>
+    </div>
+  </header>
+  <wrapper class="body-class">
+
+    <div class="slider single-item">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </wrapper>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="slick-1.8.0/slick/slick.min.js"></script>
+  <script src="index.js"></script>
 </body>
+
 </html>

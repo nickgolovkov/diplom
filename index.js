@@ -14,10 +14,10 @@
   var user = $('#user-greetings');
   var email_symbol = '@';
   var input = document.getElementById(email - input);
-  var textArray = ['Check Out Latest News Online', 'Check and Save the Most Interesting News', 'Online News Headlines', 'Read The latest Sports News', 'Lates News from the Big-Brand Agancies'];
+  var textArray = ['Check Out The Latest News Online', 'Check and Save the Most Interesting News', 'Online News Headlines', 'Read The latest Sports News', 'Latest News from the Big-Brand Agancies'];
   var counter = 0;
-  var chengeHeader = setInterval(chengeHeaderText, 4000);
-
+  //var chengeHeader = setInterval(chengeHeaderText, 4000);
+  var newsArray = ['cnn'];
 
 
 
@@ -39,7 +39,6 @@
     counter++;
     if (counter > textArray.length) {
       counter = 0
-      var chengeHeader = setInterval(chengeHeaderText, 4300);
     };
 
   }
@@ -180,7 +179,35 @@
     }*/
 
 
-
-  slider.slick();
+  /*var img = document.getElementById(slider-img);
+  img.style.height = document.getElementsByClassName(single-item).style.height;
+  
+  slider.slick({
+    adaptiveHeight: true, 
+    slideWidth: 800 ,
+  });*/
+ 
+     var API_KEY = '6dc2f16f1c6245c8ac3b8a6815dc9044';
+	var sourcesUrl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=' + API_KEY;
+	var topHeadlinesUrlTemplate = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=' + API_KEY;   
+    
+    $.ajax ({
+      url : sourcesUrl,
+      method : "GET",
+      success : onSourcesRecieved
+    });
+  
+  
+  function onSourcesRecieved(response){
+    for (var i=0; i<= response.totalResults ; i++){
+      if (response.articles[i].source.id === newsArray[0]){
+        $('.news-catalog-items').url = response.articles[i].urlToImage;
+}
+      
+}
+    
+    
+    }
+  
 
 })()

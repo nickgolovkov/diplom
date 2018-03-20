@@ -16,17 +16,20 @@
   var input = document.getElementById(email - input);
   var textArray = ['Check Out The Latest News Online', 'Check and Save the Most Interesting News', 'Online News Headlines', 'Read The latest Sports News', 'Latest News from the Big-Brand Agancies'];
   var counter = 0;
-  //var chengeHeader = setInterval(chengeHeaderText, 4000);
-  var newsArray = ['cnn'];
-
-
+  var chengeHeader = setInterval(chengeHeaderText, 4000);
 
   function buildKey(email) {
     email = appKey + email;
     return email;
   }
-
-
+  
+  
+  $( document ).ready(function() {
+    $('#news-catalog-id').addClass('news-catalog');
+    $('#news-catalog-id').fadeIn(500);
+    $('#news-catalog-id').css('opacity',1);
+    
+});
 
   font.hide();
   //slider.addClass('body-class');
@@ -42,17 +45,11 @@
     };
 
   }
-
-
-
-
-
-
+ 
   open_btn.on('click', openFunction);
 
   function openFunction() {
     body.addClass('body-class');
-    slider.addClass('body-class');
     font.fadeIn(700);
   }
 
@@ -62,8 +59,7 @@
 
   function exitFunction() {
     body.removeClass('body-class');
-    slider.removeClass('body-class');
-    user.text('');
+   
     font.fadeOut(700);
   }
 
@@ -181,24 +177,68 @@
 
   /*var img = document.getElementById(slider-img);
   img.style.height = document.getElementsByClassName(single-item).style.height;
-  
-  slider.slick({
-    adaptiveHeight: true, 
-    slideWidth: 800 ,
-  });*/
- 
-     var API_KEY = '6dc2f16f1c6245c8ac3b8a6815dc9044';
-	var sourcesUrl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=' + API_KEY;
-	var topHeadlinesUrlTemplate = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=' + API_KEY;   
+  */
+  //$('.news-catalog').slick();
+
+  var API_KEY = '6dc2f16f1c6245c8ac3b8a6815dc9044';
+  var sourcesUrl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=' + API_KEY;
+  var topHeadlinesUrlTemplate = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=' + API_KEY;
+
+  $.ajax({
+    url: sourcesUrl,
+    method: "GET",
+    success: func,
+  });
+
+  function func(response) {
+    console.log(response.articles);
+    var containesLenght = document.getElementsByClassName('news-img').length;
+    console.log(containesLenght);
+    for (var i = 0; i < containesLenght; i++) {
+      $('#news-img_' + (i + 1)).css('background-image', 'url(' + response.articles[i].urlToImage + ')');
+      $('#news-img-header_' + (i + 1)).html(response.articles[i].source.name);
+      $('#news-text_'+ (i + 1)).text(response.articles[i].title);
+      $('#news-link_'+ (i + 1)).attr('href',response.articles[i].url);
+      $('#news-link_'+ (i + 1)).html('Go To Source &rarr;');
+    }
     
-    $.ajax ({
-      url : sourcesUrl,
-      method : "GET",
-      success : onSourcesRecieved
-    });
-  
-  
-  function onSourcesRecieved(response){
+    $('#showNewsButton').on('click', showAllNews);
+    $('#showLessNewsButton').on('click',showLessNews);
+    var showingNews = true;
+    
+
+    function showAllNews() {
+      if(showingNews){
+      for (var i = containesLenght; i <= 19; i++) {
+        $('#news-img-wrap_1').clone().appendTo('#news-catalog-id').attr('data-id', i);
+        //$('[data-id="'+i+'"]').;
+        $('[data-id="' + i + '"]>.news-img').css('background-image', 'url(' + response.articles[i].urlToImage + ')');
+        $('[data-id="' + i + '"]>h1').html(response.articles[i].source.name);
+        $('[data-id="' + i + '"]>span').text(response.articles[i].title);
+        $('[data-id="' + i + '>a"]').attr('href', response.articles[i].url);
+        $('[data-id="' + i + '"]>a').html('Go To Source &rarr;');
+      }
+      $('#showNewsButton').fadeOut(500, function () {
+        $('#showNewsButton').html('Show less news').fadeIn(500);
+        showingNews = !showingNews;
+      });
+      } else showLessNews();
+    }
+    
+    
+    
+    function showLessNews(){
+      $('[data-id]').detach();
+      $('#showNewsButton').fadeOut(500, function () {
+        $('#showNewsButton').html('Show more news').fadeIn(500)});
+        showingNews = !showingNews;
+    }
+                                   
+    /*$('#news-img_1').css('background-image','url('+response.articles[0].urlToImage+')');
+    $('#news-img-header_1').html(response.articles[0].source.name);*/
+  }
+
+  /*function onSourcesRecieved(response){
     for (var i=0; i<= response.totalResults ; i++){
       if (response.articles[i].source.id === newsArray[0]){
         $('.news-catalog-items').url = response.articles[i].urlToImage;
@@ -207,7 +247,23 @@
 }
     
     
-    }
+    }*/
   
+  var top_show = 150; // В каком положении полосы прокрутки начинать показ кнопки "Наверх"
+  var delay = 1000; // Задержка прокрутки
+  $(document).ready(function() {
+    $(window).scroll(function () { // При прокрутке попадаем в эту функцию
+      /* В зависимости от положения полосы прокрукти и значения top_show, скрываем или открываем кнопку "Наверх" */
+      if ($(this).scrollTop() > top_show) $('#top').fadeIn();
+      else $('#top').fadeOut();
+    });
+    $('#top').click(function () { // При клике по кнопке "Наверх" попадаем в эту функцию
+      /* Плавная прокрутка наверх */
+      $('body, html').animate({
+        scrollTop: 0
+      }, delay);
+    });
+  });
 
-})()
+
+  })()

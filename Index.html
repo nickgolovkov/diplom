@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
   <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick.css">
   <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick-theme.css">
 </head>
@@ -34,6 +36,7 @@
       </form>
     </div>
   </div>
+  
   <header>
     <div class="header-text">
       Online News Headlines
@@ -42,22 +45,53 @@
       <button type="button" id="open-modal">Open Registration   Window</button>
     </div>
   </header>
-  <wrapper >
-   <div class="news-catalog">
-     <div ><img class="news-catalog-items" src="" alt=""></div>
-     <div><img class="news-catalog-items" src="" alt="">></div>
-     <div >
-       <img class="news-catalog-items" src="" alt="">
-     </div>
-     <div><img class="news-catalog-items" src="" alt=""></div>
-     <div ><img class="news-catalog-items" src="" alt=""></div>
-     <div class="news-catalog-items-hidden"></div>
-     <div class="news-catalog-items-hidden"></div>
-     <div class="news-catalog-items-hidden"></div>
-     <div class="news-catalog-items-hidden"></div>
-     <div class="news-catalog-items-hidden"></div>
+  <div class="mid-wrapper-bar">
+   <button id="showNewsButton">Show More News</button>
    </div>
+  <wrapper>
+   
+    <div id="news-catalog-id">
+      <div class="news-img-wrap" id="news-img-wrap_1">
+        <h1 id="news-img-header_1"></h1>
+        <div class="news-img" id="news-img_1"></div>
+        <span id="news-text_1" class="news-text" ></span>
+        <a target="_blank" id="news-link_1" class="news-link" href=""></a>
+      </div>
+      <div class="news-img-wrap" id="news-img-wrap_2">
+        <h1 id="news-img-header_2"></h1>
+        <div class="news-img" id="news-img_2"></div>
+        <span id="news-text_2" class="news-text" ></span>
+        <a target="_blank" id="news-link_2" class="news-link" href=""></a>
+      </div>
+      <div class="news-img-wrap" id="news-img-wrap_3">
+        <h1 id="news-img-header_3"></h1>
+        <div class="news-img" id="news-img_3"></div>
+        <span id="news-text_3" class="news-text" ></span>
+        <a target="_blank" id="news-link_3" class="news-link" href=""></a>
+      </div>
+      <div class="news-img-wrap" id="news-img-wrap_4">
+        <h1 id="news-img-header_4"></h1>
+        <div class="news-img" id="news-img_4"></div>
+        <span id="news-text_4" class="news-text" ></span>
+        <a target="_blank" id="news-link_4" class="news-link" href=""></a>
+      </div>
+      <div class="news-img-wrap" id="news-img-wrap_5">
+        <h1 id="news-img-header_5"></h1>
+        <div class="news-img" id="news-img_5"></div>
+        <span id="news-text_5" class="news-text" ></span>
+        <a target="_blank" id="news-link_5" class="news-link" href=""></a>
+      </div>
+      <div class="news-img-wrap" id="news-img-wrap_6">
+        <h1 id="news-img-header_6"></h1>
+        <div class="news-img" id="news-img_6"></div>
+        <span id="news-text_6" class="news-text" ></span>
+        <a target="_blank" id="news-link_6" class="news-link" href=""></a>
+      </div>
+
+    </div>
   </wrapper>
+  
+  <div id="top">Top &uarr;</div>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/slick-carousel/slick/slick.min.js"></script>
   <script src="index.js"></script>

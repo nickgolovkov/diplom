@@ -1,6 +1,5 @@
 * {
   font-family: 'Indie Flower', cursive;
-
 }
 
 body {
@@ -11,7 +10,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
 header {
@@ -240,4 +238,5 @@ wrapper {
 #showNewsButton {
   margin-right: 10px;
   border-radius: 15%;
+  margin: 40px;
 }

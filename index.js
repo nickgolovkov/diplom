@@ -14,9 +14,9 @@
   var user = $('#user-greetings');
   var email_symbol = '@';
   var input = document.getElementById(email - input);
-  var textArray = ['Check Out The Latest News Online', 'Check and Save the Most Interesting News', 'Online News Headlines', 'Read The latest Sports News', 'Latest News from the Big-Brand Agancies'];
+  var textArray = ['Check Out The Latest News Online', 'Check and Save the Most Interesting News', 'Online News Headlines', 'Read Up-to-Dated News', 'Latest News from the Big-Brand Agancies'];
   var counter = 0;
-  var chengeHeader = setInterval(chengeHeaderText, 4000);
+  
 
   function buildKey(email) {
     email = appKey + email;
@@ -24,20 +24,34 @@
   }
 
 
+   function OffScroll() {
+      var winScrollTop = $(window).scrollTop();
+      $(window).bind('scroll', function () {
+        $(window).scrollTop(winScrollTop);
+      });
+    }
+  
+  
   $(document).ready(function () {
     $('#news-catalog-id').addClass('news-catalog');
     $('#news-catalog-id').fadeIn(500);
     $('#news-catalog-id').css('opacity', 1);
+    OffScroll();
 
   });
 
-  font.hide();
+  //font.hide();
   //slider.addClass('body-class');
-  $().ready(chengeHeaderText);
+  //$().ready(chengeHeaderText);
 
   function chengeHeaderText() {
     //$('.header-text').fadeOut(1000);
-    $('.header-text').text(textArray[counter]);
+
+    $('.header-text').fadeOut(600, function () {
+      $('.header-text').text(textArray[counter]).fadeIn(600);
+
+    })
+
     //$('.header-text').fadeIn(1000);
     counter++;
     if (counter > textArray.length) {
@@ -51,21 +65,8 @@
   function openFunction() {
     body.addClass('body-class');
     font.fadeIn(700);
-
-    function OffScroll() {
-
-      var winScrollTop = $(window).scrollTop();
-
-      $(window).bind('scroll', function () {
-
-        $(window).scrollTop(winScrollTop);
-
-      });
-    }
-
-
-
     OffScroll();
+    chengeHeaderText().stop;
   }
 
 
@@ -74,9 +75,24 @@
 
   function exitFunction() {
     body.removeClass('body-class');
-
     font.fadeOut(700);
     $(window).unbind('scroll');
+    var top_show = 150; // В каком положении полосы прокрутки начинать показ кнопки "Наверх"
+    var delay = 1000; // Задержка прокрутки
+    $(document).ready(function () {
+      $(window).scroll(function () { // При прокрутке попадаем в эту функцию
+        /* В зависимости от положения полосы прокрукти и значения top_show, скрываем или открываем кнопку "Наверх" */
+        if ($(this).scrollTop() > top_show) $('#top').fadeIn();
+        else $('#top').fadeOut();
+      });
+      $('#top').click(function () { // При клике по кнопке "Наверх" попадаем в эту функцию
+        /* Плавная прокрутка наверх */
+        $('body, html').animate({
+          scrollTop: 0
+        }, delay);
+      });
+    });
+    chengeHeaderText().start;
   }
 
 
@@ -203,11 +219,10 @@
   $.ajax({
     url: sourcesUrl,
     method: "GET",
-    success: func,
+    success: onSuccess,
   });
 
-  function func(response) {
-    console.log(response.articles);
+  function onSuccess(response) {
     var containesLenght = document.getElementsByClassName('news-img').length;
     console.log(containesLenght);
     for (var i = 0; i < containesLenght; i++) {
@@ -241,8 +256,6 @@
       } else showLessNews();
     }
 
-
-
     function showLessNews() {
       $('[data-id]').detach();
       $('#showNewsButton').fadeOut(500, function () {
@@ -250,9 +263,6 @@
       });
       showingNews = !showingNews;
     }
-
-    /*$('#news-img_1').css('background-image','url('+response.articles[0].urlToImage+')');
-    $('#news-img-header_1').html(response.articles[0].source.name);*/
   }
 
   /*function onSourcesRecieved(response){

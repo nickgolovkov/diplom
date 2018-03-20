@@ -1,6 +1,6 @@
 * {
   font-family: 'Indie Flower', cursive;
-  
+
 }
 
 body {
@@ -11,7 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
+
 }
 
 header {
@@ -43,7 +43,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .body-class {
@@ -51,11 +51,13 @@ header {
   opacity: 0;
   height: 100%;
 }
-wrapper{
+
+wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 #open-modal {
   font-size: 18px;
   border-radius: 20%;
@@ -139,12 +141,13 @@ wrapper{
   width: 800px;
   height: 500px;
   border: 2px solid black;
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
-#slider-item{
+
+#slider-item {
   background: url(14866651462470.jpg);
   width: 100%;
   height: 100%;
@@ -154,7 +157,8 @@ wrapper{
   margin-left: 90px;
   margin-top: 20px;
 }
-.news-catalog{
+
+.news-catalog {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -162,13 +166,15 @@ wrapper{
   padding-top: 50px;
   opacity: 1;
 }
-#news-catalog-id{
+
+#news-catalog-id {
   opacity: 0;
 }
-.news-img-wrap{
+
+.news-img-wrap {
   width: 350px;
   height: 300px;
-  transition: height 1.7s; 
+  transition: height 1.7s;
   background-size: cover;
   margin: 15px;
   display: flex;
@@ -178,35 +184,41 @@ wrapper{
   color: #881f1f;
   font-family: 'Lobster', cursive;
 }
-.news-img-wrap:hover{
+
+.news-img-wrap:hover {
   height: 400px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.news-img{
+
+.news-img {
   width: 300px;
   height: 150px;
   background-size: cover;
   margin: 15px;
 }
-.news-catalog-items>img{
+
+.news-catalog-items > img {
   max-width: 150px;
-  padding-top:0;
+  padding-top: 0;
 }
-.news-catalog-items{
+
+.news-catalog-items {
   margin: 10px;
 }
-wrapper{
+
+wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.news-text{
+
+.news-text {
   padding: 5px;
 }
 
 #top {
   bottom: 0;
-  border:1px solid black;
+  border: 1px solid black;
   border-radius: 50%;
   cursor: pointer;
   display: none;
@@ -215,7 +227,8 @@ wrapper{
   right: 0;
   margin: 10px;
 }
-.mid-wrapper-bar{
+
+.mid-wrapper-bar {
   height: 40px;
   width: 100%;
   border-bottom: 1.5px solid black;
@@ -223,7 +236,8 @@ wrapper{
   justify-content: flex-end;
   align-items: center;
 }
-#showNewsButton{
+
+#showNewsButton {
   margin-right: 10px;
   border-radius: 15%;
 }

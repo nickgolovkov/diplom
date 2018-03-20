@@ -22,14 +22,14 @@
     email = appKey + email;
     return email;
   }
-  
-  
-  $( document ).ready(function() {
+
+
+  $(document).ready(function () {
     $('#news-catalog-id').addClass('news-catalog');
     $('#news-catalog-id').fadeIn(500);
-    $('#news-catalog-id').css('opacity',1);
-    
-});
+    $('#news-catalog-id').css('opacity', 1);
+
+  });
 
   font.hide();
   //slider.addClass('body-class');
@@ -45,12 +45,27 @@
     };
 
   }
- 
+
   open_btn.on('click', openFunction);
 
   function openFunction() {
     body.addClass('body-class');
     font.fadeIn(700);
+
+    function OffScroll() {
+
+      var winScrollTop = $(window).scrollTop();
+
+      $(window).bind('scroll', function () {
+
+        $(window).scrollTop(winScrollTop);
+
+      });
+    }
+
+
+
+    OffScroll();
   }
 
 
@@ -59,8 +74,9 @@
 
   function exitFunction() {
     body.removeClass('body-class');
-   
+
     font.fadeOut(700);
+    $(window).unbind('scroll');
   }
 
 
@@ -197,43 +213,44 @@
     for (var i = 0; i < containesLenght; i++) {
       $('#news-img_' + (i + 1)).css('background-image', 'url(' + response.articles[i].urlToImage + ')');
       $('#news-img-header_' + (i + 1)).html(response.articles[i].source.name);
-      $('#news-text_'+ (i + 1)).text(response.articles[i].title);
-      $('#news-link_'+ (i + 1)).attr('href',response.articles[i].url);
-      $('#news-link_'+ (i + 1)).html('Go To Source &rarr;');
+      $('#news-text_' + (i + 1)).text(response.articles[i].title);
+      $('#news-link_' + (i + 1)).attr('href', response.articles[i].url);
+      $('#news-link_' + (i + 1)).html('Go To Source &rarr;');
     }
-    
+
     $('#showNewsButton').on('click', showAllNews);
-    $('#showLessNewsButton').on('click',showLessNews);
+    $('#showLessNewsButton').on('click', showLessNews);
     var showingNews = true;
-    
+
 
     function showAllNews() {
-      if(showingNews){
-      for (var i = containesLenght; i <= 19; i++) {
-        $('#news-img-wrap_1').clone().appendTo('#news-catalog-id').attr('data-id', i);
-        //$('[data-id="'+i+'"]').;
-        $('[data-id="' + i + '"]>.news-img').css('background-image', 'url(' + response.articles[i].urlToImage + ')');
-        $('[data-id="' + i + '"]>h1').html(response.articles[i].source.name);
-        $('[data-id="' + i + '"]>span').text(response.articles[i].title);
-        $('[data-id="' + i + '>a"]').attr('href', response.articles[i].url);
-        $('[data-id="' + i + '"]>a').html('Go To Source &rarr;');
-      }
-      $('#showNewsButton').fadeOut(500, function () {
-        $('#showNewsButton').html('Show less news').fadeIn(500);
-        showingNews = !showingNews;
-      });
+      if (showingNews) {
+        for (var i = containesLenght; i <= 19; i++) {
+          $('#news-img-wrap_1').clone().appendTo('#news-catalog-id').attr('data-id', i);
+          //$('[data-id="'+i+'"]').;
+          $('[data-id="' + i + '"]>.news-img').css('background-image', 'url(' + response.articles[i].urlToImage + ')');
+          $('[data-id="' + i + '"]>h1').html(response.articles[i].source.name);
+          $('[data-id="' + i + '"]>span').text(response.articles[i].title);
+          $('[data-id="' + i + '>a"]').attr('href', response.articles[i].url);
+          $('[data-id="' + i + '"]>a').html('Go To Source &rarr;');
+        }
+        $('#showNewsButton').fadeOut(500, function () {
+          $('#showNewsButton').html('Show less news').fadeIn(500);
+          showingNews = !showingNews;
+        });
       } else showLessNews();
     }
-    
-    
-    
-    function showLessNews(){
+
+
+
+    function showLessNews() {
       $('[data-id]').detach();
       $('#showNewsButton').fadeOut(500, function () {
-        $('#showNewsButton').html('Show more news').fadeIn(500)});
-        showingNews = !showingNews;
+        $('#showNewsButton').html('Show more news').fadeIn(500)
+      });
+      showingNews = !showingNews;
     }
-                                   
+
     /*$('#news-img_1').css('background-image','url('+response.articles[0].urlToImage+')');
     $('#news-img-header_1').html(response.articles[0].source.name);*/
   }
@@ -248,10 +265,10 @@
     
     
     }*/
-  
+
   var top_show = 150; // В каком положении полосы прокрутки начинать показ кнопки "Наверх"
   var delay = 1000; // Задержка прокрутки
-  $(document).ready(function() {
+  $(document).ready(function () {
     $(window).scroll(function () { // При прокрутке попадаем в эту функцию
       /* В зависимости от положения полосы прокрукти и значения top_show, скрываем или открываем кнопку "Наверх" */
       if ($(this).scrollTop() > top_show) $('#top').fadeIn();
@@ -266,4 +283,4 @@
   });
 
 
-  })()
+})()
